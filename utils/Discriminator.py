@@ -46,9 +46,13 @@ class Discriminator:
         reccomendations_dict = dict()
         reccomendations_skip = dict()
         for x in shap_feature_value.abs().sort_values(ascending=False).index:
-            p = shap_feature_value[x] + base_value -0.5
+            if x in reccomendations_dict.keys():
+                continue
+            p = shap_feature_value[x]
             if ' = 0' in x:
                 f = x.split(' = ')[0]
+                if f.split(' -> ')[1] == '<end>' and (p > shap_thr):
+                    continue
                 for f_corr in corr_train[f][corr_train[f]>corr_thr].index:
                     if p<-shap_thr:
                         reccomendations_dict[f_corr] = (p, 'skip')
@@ -61,6 +65,8 @@ class Discriminator:
                         reccomendations_skip[f_corr] = (p, 'skip_b')
             if ' > 0' in x:
                 f = x.split(' > ')[0]
+                if f.split(' -> ')[1] == '<end>' and (p < -shap_thr):
+                    continue
                 for f_corr in corr_train[f][corr_train[f]>corr_thr].index:
                     if p>shap_thr:
                         reccomendations_dict[f_corr] = (p, 'skip')
@@ -77,30 +83,3 @@ class Discriminator:
         reccomendations = dict(sorted(reccomendations.items(), key=lambda x: abs(x[1][0]), reverse=True))
 
         return reccomendations
-    
-
-    # SENZA CORRELAZIONE
-    # def reccomendations(self, p_conf=0.01, shap_thr=0.01, show=True, save_to=None):
-    #     shap_feature_value, base_value = self.explain(p_conf, show, save_to)
-    #     reccomendations_dict = dict()
-    #     reccomendations_skip = dict()
-    #     for x in shap_feature_value.abs().sort_values(ascending=False).index:
-    #         p = shap_feature_value[x] + base_value -0.5
-    #         if ' = 0' in x:
-    #             f = x.split(' = ')[0]
-    #             if p<-shap_thr:
-    #                 reccomendations_dict[f] = (p, 'skip')
-    #             elif p>shap_thr:
-    #                 reccomendations_skip[f] = (p, 'skip_b')
-    #         if ' > 0' in x:
-    #             f = x.split(' > ')[0]
-    #             if p>shap_thr:
-    #                 reccomendations_dict[f] = (p, 'skip')
-    #             elif p<-shap_thr:
-    #                 reccomendations_skip[f] = (p, 'skip_b')
-
-    #     reccomendations = reccomendations_dict | reccomendations_skip
-
-    #     reccomendations = dict(sorted(reccomendations.items(), key=lambda x: abs(x[1][0]), reverse=True))
-
-    #     return reccomendations

@@ -15,8 +15,10 @@ import matplotlib.pyplot as plt
 import argparse
 parser = argparse.ArgumentParser()
 
+import random
+random.seed(72)
 
-parser.add_argument('--case_study', type=str, default='Purchasing')
+parser.add_argument('--case_study', type=str, default='BPI17')
 parser.add_argument('--max_number_iterations', type=int, default=15)
 parser.add_argument('--show_shap', type=bool, default=False)
 parser.add_argument('--save_shap', type=bool, default=True)
@@ -64,7 +66,7 @@ while it_n <= max_number_iterations and graph_is_updated:
 
     data_creator = CreateDataset(real_train, real_val, log_sim)
 
-    discriminator = Discriminator(data_creator, catboost_iterations=200, catboost_depth=3, catboost_lr=1e-1)
+    discriminator = Discriminator(data_creator, catboost_iterations=100, catboost_depth=3, catboost_lr=1e-1)
     discriminator.fit()
 
     acc_train, acc_val = discriminator.eval_accuracy()

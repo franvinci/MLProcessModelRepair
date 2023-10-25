@@ -41,7 +41,7 @@ class Discriminator:
         
     
     def reccomendations(self, p_conf=0.01, corr_thr=0.99, shap_thr=0.01, show=True, save_to=None):
-        shap_feature_value, base_value = self.explain(p_conf, show, save_to)
+        shap_feature_value, _ = self.explain(p_conf, show, save_to)
         corr_train = self.data_creator.corr_train
         reccomendations_dict = dict()
         reccomendations_skip = dict()
@@ -51,28 +51,38 @@ class Discriminator:
             p = shap_feature_value[x]
             if ' = 0' in x:
                 f = x.split(' = ')[0]
-                if f.split(' -> ')[1] == '<end>' and (p > shap_thr):
+                corr_features_p = corr_train[f][corr_train[f]>corr_thr].index
+                corr_features_n = corr_train[f][corr_train[f]<-corr_thr].index
+
+                corr_features_p_1 = [feat.split(' -> ')[1] for feat in corr_features_p]
+                if (p > shap_thr) and ('END' in corr_features_p_1):
                     continue
-                for f_corr in corr_train[f][corr_train[f]>corr_thr].index:
+
+                for f_corr in corr_features_p:
                     if p<-shap_thr:
                         reccomendations_dict[f_corr] = (p, 'skip')
                     elif p>shap_thr:
                         reccomendations_skip[f_corr] = (p, 'skip_b')
-                for f_corr in corr_train[f][corr_train[f]<-corr_thr].index:
+                for f_corr in corr_features_n:
                     if p>shap_thr:
                         reccomendations_dict[f_corr] = (p, 'skip')
                     elif p<-shap_thr:
                         reccomendations_skip[f_corr] = (p, 'skip_b')
             if ' > 0' in x:
                 f = x.split(' > ')[0]
-                if f.split(' -> ')[1] == '<end>' and (p < -shap_thr):
+                corr_features_p = corr_train[f][corr_train[f]>corr_thr].index
+                corr_features_n = corr_train[f][corr_train[f]<-corr_thr].index
+
+                corr_features_p_1 = [feat.split(' -> ')[1] for feat in corr_features_p]
+                if (p < -shap_thr) and ('END' in corr_features_p_1):
                     continue
-                for f_corr in corr_train[f][corr_train[f]>corr_thr].index:
+
+                for f_corr in corr_features_p:
                     if p>shap_thr:
                         reccomendations_dict[f_corr] = (p, 'skip')
                     elif p<-shap_thr:
                         reccomendations_skip[f_corr] = (p, 'skip_b')
-                for f_corr in corr_train[f][corr_train[f]<-corr_thr].index:
+                for f_corr in corr_features_n:
                     if p<-shap_thr:
                         reccomendations_dict[f_corr] = (p, 'skip')
                     elif p>shap_thr:

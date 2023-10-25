@@ -4,12 +4,11 @@ sys.path.append('./')
 import pm4py
 import os
 from SPN_Simulator.SPN_Simulator import StochasticPetriNetSimulator
-from utils.train_utils import splitRealLog
+from utils.train_utils import splitRealLog, addStartEndEvents, addStartEndTransitions
 from utils.createDataset import CreateDataset
 from utils.Discriminator import Discriminator
 from utils.repair_utils import updateModel
 import pickle
-import shutil
 import json
 import matplotlib.pyplot as plt
 import argparse
@@ -18,7 +17,7 @@ parser = argparse.ArgumentParser()
 import random
 random.seed(72)
 
-parser.add_argument('--case_study', type=str, default='BPI17')
+parser.add_argument('--case_study', type=str, default='Example_50')
 parser.add_argument('--max_number_iterations', type=int, default=15)
 parser.add_argument('--show_shap', type=bool, default=False)
 parser.add_argument('--save_shap', type=bool, default=True)
@@ -31,7 +30,8 @@ show_shap = args.show_shap
 max_number_iterations = args.max_number_iterations
 
 log_real = pm4py.read_xes(f'data/{case_study}/log.xes')
-log_real = pm4py.filter_event_attribute_values(log_real, 'lifecycle:transition', ['complete'], level="event", retain=True)  
+log_real = pm4py.filter_event_attribute_values(log_real, 'lifecycle:transition', ['complete'], level="event", retain=True)
+log_real = addStartEndEvents(log_real)
 
 if 'logTrain.xes' in os.listdir(f'data/{case_study}') and 'logTrain.xes' in os.listdir(f'data/{case_study}') and 'logTrain.xes' in os.listdir(f'data/{case_study}'):
     real_train = pm4py.read_xes(f'data/{case_study}/logTrain.xes')
@@ -45,11 +45,16 @@ try:
 except:
     n_exp = 1
 
+if case_study not in os.listdir('plots'):
+    os.mkdir(f'plots/{case_study}')
+
 os.mkdir(f'data/{case_study}/exp_{n_exp}')
 os.mkdir(f'data/{case_study}/exp_{n_exp}/it_0')
 os.mkdir(f'plots/{case_study}/exp_{n_exp}')
-shutil.copyfile(f'data/{case_study}/diagram_0.pnml', f'data/{case_study}/exp_{n_exp}/it_0/diagram_0.pnml')
 
+net, initial_marking, final_marking = pm4py.read_pnml(f'data/{case_study}/diagram_0.pnml')
+net, initial_marking, final_marking = addStartEndTransitions(net, initial_marking, final_marking)
+pm4py.write_pnml(net, initial_marking, final_marking, f'data/{case_study}/exp_{n_exp}/it_0/diagram_0.pnml')
 
 train_accuracy = []
 val_accuracy = []
@@ -81,6 +86,7 @@ while it_n <= max_number_iterations and graph_is_updated:
         reccomendations = discriminator.reccomendations(show=show_shap)
 
     print(reccomendations)
+    net, initial_marking, final_marking = pm4py.read_pnml(f'data/{case_study}/exp_{n_exp}/it_{it_n}/diagram_{it_n}.pnml')
     net, graph_is_updated = updateModel(net, initial_marking, final_marking, reccomendations)
     pm4py.view_petri_net(net, initial_marking, final_marking)
 

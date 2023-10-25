@@ -20,32 +20,12 @@ class CreateDataset:
         self.sim_train = pm4py.convert_to_event_log(self.df_sim_train)
         self.sim_val = pm4py.convert_to_event_log(self.df_sim_val)
 
-        self.activities = ['<start>'] + list(pm4py.get_event_attribute_values(self.real_train, "concept:name").keys()) + ['<end>']
+        self.activities = list(pm4py.get_event_attribute_values(self.real_train, "concept:name").keys())
         self.activities_k = dict(zip(self.activities, range(len(self.activities))))
 
         self.features = self.getFeatureList()
         self.dfTrain = self.create_df(self.real_train, self.sim_train)
         self.dfVal = self.create_df(self.real_val, self.sim_val)
-
-
-    def getStartActivityList(self):
-        
-        startReal = pm4py.get_start_activities(self.real_train).keys()
-        startSim = pm4py.get_start_activities(self.sim_train).keys()
-
-        startActivities = list(set(list(startReal) + list(startSim)))
-
-        return startActivities
-
-
-    def getEndActivityList(self):
-        
-        endReal = pm4py.get_end_activities(self.real_train).keys()
-        endSim = pm4py.get_end_activities(self.sim_train).keys()
-
-        endActivities = list(set(list(endReal) + list(endSim)))
-
-        return endActivities
 
 
     def getCausalityRelationList(self):
@@ -60,13 +40,8 @@ class CreateDataset:
 
     def getFeatureList(self):
 
-        startActivities = self.getStartActivityList()
-        endActivities = self.getEndActivityList()
         causalityRelations = self.getCausalityRelationList()
-
-        features_tuple = [('<start>', s_act) for s_act in startActivities] + [(e_act, '<end>') for e_act in endActivities] + causalityRelations
-
-        features = [a1 + ' -> ' + a2 for (a1,a2) in features_tuple]
+        features = [a1 + ' -> ' + a2 for (a1,a2) in causalityRelations]
 
         return features
     
@@ -76,41 +51,19 @@ class CreateDataset:
         A = np.zeros((len(real) + len(sim), len(self.features)+1))
 
         for i, trace in enumerate(real):
-            for j in range(len(trace)):
-                if j == 0:
-                    f = '<start> -> ' + trace[0]['concept:name']
-                    if f in self.features:
-                        k = idx_features[f]
-                        A[i, k] = 1
-                elif j == len(trace)-1:
-                    f = trace[-1]['concept:name'] + ' -> <end>'
-                    if f in self.features:
-                        k = idx_features[f]
-                        A[i, k] = 1
-                else:
-                    f = trace[j]['concept:name'] + ' -> ' + trace[j+1]['concept:name']
-                    if f in self.features:
-                        k = idx_features[f]
-                        A[i, k] = 1
+            for j in range(len(trace)-1):
+                f = trace[j]['concept:name'] + ' -> ' + trace[j+1]['concept:name']
+                if f in self.features:
+                    k = idx_features[f]
+                    A[i, k] = 1
             A[i, -1] = 1
 
         for i, trace in enumerate(sim):
-            for j in range(len(trace)):
-                if j == 0:
-                    f = '<start> -> ' + trace[0]['concept:name']
-                    if f in self.features:
-                        k = idx_features[f]
-                        A[i + len(sim), k] = 1
-                elif j == len(trace)-1:
-                    f = trace[-1]['concept:name'] + ' -> <end>'
-                    if f in self.features:
-                        k = idx_features[f]
-                        A[i + len(sim), k] = 1
-                else:
-                    f = trace[j]['concept:name'] + ' -> ' + trace[j+1]['concept:name']
-                    if f in self.features:
-                        k = idx_features[f]
-                        A[i + len(sim), k] = 1
+            for j in range(len(trace)-1):
+                f = trace[j]['concept:name'] + ' -> ' + trace[j+1]['concept:name']
+                if f in self.features:
+                    k = idx_features[f]
+                    A[i + len(sim), k] = 1
             A[i + len(sim), -1] = 0
 
         np.random.shuffle(A) 

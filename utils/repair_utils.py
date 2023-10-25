@@ -1,4 +1,7 @@
 from pm4py.objects.petri_net.obj import PetriNet
+from pm4py.objects.petri_net.utils import reachability_graph
+import random
+random.seed(72)
 
 
 def search_transition(net, label):
@@ -7,126 +10,62 @@ def search_transition(net, label):
             return t
 
 
-def a_follow_b(t_a, b):
-    for s in list(t_a.out_arcs):
-        p = s.target
-        for arc in list(p.out_arcs):
-            if arc.target.label == b:
-                return True
-            if not arc.target.label:
-                if a_follow_b(arc.target, b):
-                    return True
+def ta_reach_tb(ts, t_a, t_b, trans_done = []):
+    trans_done.append(t_a)
+    t_a_reachgraph = [T for T in list(ts.transitions) if T.name == str(t_a)]
+    t_b_reachgraph = [T for T in list(ts.transitions) if T.name == str(t_b)]
+
+    reach_nodes_a = [t.to_state for t in t_a_reachgraph]
+    next_t = [x for n in reach_nodes_a for x in list(n.outgoing)]
+    for t in t_b_reachgraph:
+        if t in next_t:
+            return True
+    
+    next_invt = [t for t in next_t if len(t.name.split("'")) == 1 and t not in trans_done]
+    if len(next_invt) > 0:
+        if True in [ta_reach_tb(ts, invt, t_b, trans_done) for invt in next_invt]:
+            return True
+    
     return False
 
 
-def a_follow_b_in_net(net, a, b):
-    t_a = search_transition(net, a)
-    return a_follow_b(t_a, b)
-
-
-def net_start_a(net, initial_marking, a):
-    for p in list(initial_marking):
-        for arc in list(net.arcs):
-            if arc.source == p:
-                if arc.target.label == a:
-                    return True
-                if not arc.target.label:
-                    if a_follow_b(arc.target, a):
-                        return True                    
-    return False
-
-
-def net_end_b(net, final_marking, b):
-    for p in list(final_marking):
-        for arc in list(net.arcs):
-            if arc.target == p:
-                if arc.source.label == b:
-                    return True
-                if not arc.source.label:
-                    t_b = search_transition(net, b)
-                    if a_follow_b(t_b, arc.target):
-                        return True
-    return False
-
-
-def add_start(net, initial_marking, a):
-
-    if net_start_a(net, initial_marking, a):
-        return net, False
-
-    t_a = search_transition(net, a)
-    N = len(net.transitions) + len(net.places) + 1
-    inv_t = PetriNet.Transition(name = 'n'+str(N))
-    net.transitions.add(inv_t)
-    new_sources = list(initial_marking)
-    new_target = [arc.source for arc in list(t_a.in_arcs)]
-    new_arcs = []
-
-    for s in new_sources:
-        new_arcs.append(PetriNet.Arc(s, inv_t))
-
-    for t in new_target:
-        new_arcs.append(PetriNet.Arc(inv_t, t))
-
-    for a in new_arcs:
-        net.arcs.add(a)
-    
-    return net, True
-
-
-def add_end(net, final_marking, b):
-
-    if net_end_b(net, final_marking, b):
-        return net, False
-    
-    t_b = search_transition(net, b)
-    N = len(net.transitions) + len(net.places) + 1
-    inv_t = PetriNet.Transition(name = 'n'+str(N))
-    net.transitions.add(inv_t)
-    new_sources = [arc.target for arc in list(t_b.out_arcs)]
-    new_target = list(final_marking)
-    new_arcs = []
-
-    for s in new_sources:
-        new_arcs.append(PetriNet.Arc(s, inv_t))
-
-    for t in new_target:
-        new_arcs.append(PetriNet.Arc(inv_t, t))
-
-    for a in new_arcs:
-        net.arcs.add(a)
-    
-    return net, True
-
-
-def add_skip(net, initial_marking, final_marking, a, b):
-
-    if a == '<start>':
-        return add_start(net, initial_marking, b)
-    
-    if b == '<end>':
-        return add_end(net, final_marking, a)
-
-    if a_follow_b_in_net(net, a, b):
-        return net, False
+def add_skip(net, initial_marking, a, b):
     
     t_a = search_transition(net, a)
     t_b = search_transition(net, b)
-    N = len(net.transitions) + len(net.places) + 1
-    inv_t = PetriNet.Transition(name = 'n'+str(N))
-    net.transitions.add(inv_t)
-    new_sources = [arc.target for arc in list(t_a.out_arcs)]
-    new_target = [arc.source for arc in list(t_b.in_arcs)]
-    new_arcs = []
+    
+    ts = reachability_graph.construct_reachability_graph(net, initial_marking)
 
-    for s in new_sources:
-        new_arcs.append(PetriNet.Arc(s, inv_t))
+    if ta_reach_tb(ts, t_a, t_b, []):
+        return net, False
 
-    for t in new_target:
-        new_arcs.append(PetriNet.Arc(inv_t, t))
+    t_a_reachgraph = [T for T in list(ts.transitions) if T.name == str(t_a)]
+    reach_nodes = [t.to_state for t in t_a_reachgraph]
+    list_new_sources = [['n'+x[:-1] for x in r.name.split('n')[1:]]for r in reach_nodes]
 
-    for a in new_arcs:
-        net.arcs.add(a)
+    t_b_reachgraph = [T for T in list(ts.transitions) if T.name == str(t_b)]
+    reach_nodes = [t.from_state for t in t_b_reachgraph]
+    list_new_targets = [['n'+x[:-1] for x in r.name.split('n')[1:]]for r in reach_nodes]
+
+    for str_new_sources in list_new_sources:
+        new_sources = [p for p in list(net.places) if p.name in str_new_sources]
+        for str_new_target in list_new_targets:
+            new_target = [p for p in list(net.places) if p.name in str_new_target]
+            N = len(net.transitions) + len(net.places) + 1
+            inv_t = PetriNet.Transition(name = 'n'+str(N))
+            net.transitions.add(inv_t)
+
+            for s in new_sources:
+                arc = PetriNet.Arc(s, inv_t)
+                net.arcs.add(arc)
+                s.out_arcs.add(arc)
+                inv_t.in_arcs.add(arc)
+
+            for t in new_target:
+                arc = PetriNet.Arc(inv_t, t)
+                net.arcs.add(arc)
+                inv_t.out_arcs.add(arc)
+                t.in_arcs.add(arc)
     
     return net, True
 
@@ -149,18 +88,125 @@ def add_skip_b(net, a, b):
     net.transitions.add(inv_t)
     new_sources = [arc.target for arc in list(t_a.out_arcs)]
     new_target = [arc.target for arc in list(t_b.out_arcs)]
-    new_arcs = []
 
     for s in new_sources:
-        new_arcs.append(PetriNet.Arc(s, inv_t))
+        arc = PetriNet.Arc(s, inv_t)
+        net.arcs.add(arc)
+        s.out_arcs.add(arc)
+        inv_t.in_arcs.add(arc)
 
     for t in new_target:
-        new_arcs.append(PetriNet.Arc(inv_t, t))
-
-    for a in new_arcs:
-        net.arcs.add(a)
+        arc = PetriNet.Arc(inv_t, t)
+        net.arcs.add(arc)
+        inv_t.out_arcs.add(arc)
+        t.in_arcs.add(arc)
     
     return net, True
+
+
+def add_new_transition_a(net, a, b):
+
+    t_b = search_transition(net, b)
+
+    places_from = [arc.source for arc in list(t_b.in_arcs)]
+
+    for arc in t_b.in_arcs:
+        net.arcs.remove(arc)
+
+    t_b.in_arcs.clear()
+
+    N = len(net.transitions) + len(net.places) + 1
+    t_a = PetriNet.Transition(name = 'n'+str(N), label=a)
+    net.transitions.add(t_a)
+
+    N = len(net.transitions) + len(net.places) + 1
+    inv_t = PetriNet.Transition(name = 'n'+str(N))
+    net.transitions.add(inv_t)
+
+    N = len(net.transitions) + len(net.places) + 1
+    new_place = PetriNet.Place(name = 'n'+str(N))
+    net.places.add(new_place)
+
+    arc = PetriNet.Arc(new_place, t_b)
+    net.arcs.add(arc)
+    new_place.out_arcs.add(arc)
+    t_b.in_arcs.add(arc)
+
+    arc = PetriNet.Arc(inv_t, new_place)
+    net.arcs.add(arc)
+    inv_t.out_arcs.add(arc)
+    new_place.in_arcs.add(arc)
+
+    arc = PetriNet.Arc(t_a, new_place)
+    net.arcs.add(arc)
+    t_a.out_arcs.add(arc)
+    new_place.in_arcs.add(arc)
+
+    for s in places_from:
+
+        arc = PetriNet.Arc(s, t_a)
+        net.arcs.add(arc)
+        s.out_arcs.add(arc)
+        t_a.in_arcs.add(arc)
+
+        arc = PetriNet.Arc(s, inv_t)
+        net.arcs.add(arc)
+        s.out_arcs.add(arc)
+        inv_t.in_arcs.add(arc)
+
+    return net
+
+def add_new_transition_b(net, a, b):
+
+    t_a = search_transition(net, a)
+
+    places_to = [arc.target for arc in list(t_a.out_arcs)]
+
+    for arc in t_a.out_arcs:
+        net.arcs.remove(arc)
+
+    t_a.out_arcs.clear()
+
+    N = len(net.transitions) + len(net.places) + 1
+    t_b = PetriNet.Transition(name = 'n'+str(N), label=b)
+    net.transitions.add(t_b)
+
+    N = len(net.transitions) + len(net.places) + 1
+    inv_t = PetriNet.Transition(name = 'n'+str(N))
+    net.transitions.add(inv_t)
+
+    N = len(net.transitions) + len(net.places) + 1
+    new_place = PetriNet.Place(name = 'n'+str(N))
+    net.places.add(new_place)
+
+    arc = PetriNet.Arc(t_a, new_place)
+    net.arcs.add(arc)
+    t_a.out_arcs.add(arc)
+    new_place.in_arcs.add(arc)
+
+    arc = PetriNet.Arc(new_place, inv_t)
+    net.arcs.add(arc)
+    new_place.out_arcs.add(arc)
+    inv_t.in_arcs.add(arc)
+
+    arc = PetriNet.Arc(new_place, t_b)
+    net.arcs.add(arc)
+    new_place.out_arcs.add(arc)
+    t_b.in_arcs.add(arc)
+
+    for s in places_to:
+
+        arc = PetriNet.Arc(t_b, s)
+        net.arcs.add(arc)
+        t_b.out_arcs.add(arc)
+        s.in_arcs.add(arc)
+
+        arc = PetriNet.Arc(inv_t, s)
+        net.arcs.add(arc)
+        inv_t.out_arcs.add(arc)
+        s.in_arcs.add(arc)
+
+    return net
 
 
 def updateModel(net, initial_marking, final_marking, recc, top_n_recc = 0):
@@ -171,16 +217,27 @@ def updateModel(net, initial_marking, final_marking, recc, top_n_recc = 0):
         recc = dict(list(recc.items())[:top_n_recc])
 
     for rel in recc.keys():
+        print(rel)
+        transition_labels = [x.label for x in list(net.transitions)]
 
         a = rel.split(' -> ')[0]
         b = rel.split(' -> ')[1]
 
         if recc[rel][1] == 'skip':
-            net, model_updated = add_skip(net, initial_marking, final_marking, a, b)
-            model_updates.append(model_updated)
+            if (a not in transition_labels) and (b not in transition_labels):
+                continue
+            if a not in transition_labels:
+                net = add_new_transition_a(net, a, b)
+                model_updates.append(True)
+            if b not in transition_labels:
+                net = add_new_transition_b(net, a, b)
+                model_updates.append(True)
+            if (a in transition_labels) and (b in transition_labels):
+                net, model_updated = add_skip(net, initial_marking, a, b)
+                model_updates.append(model_updated)
 
         elif recc[rel][1] == 'skip_b':
-            if a == '<start>' or b == '<end>':
+            if (a not in transition_labels) or (b not in transition_labels):
                 continue
             net, model_updated = add_skip_b(net, a, b)
             model_updates.append(model_updated)

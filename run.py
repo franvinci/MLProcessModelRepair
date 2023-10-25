@@ -1,6 +1,3 @@
-import sys
-sys.path.append('./')
-
 import pm4py
 import os
 from SPN_Simulator.SPN_Simulator import StochasticPetriNetSimulator
@@ -17,7 +14,7 @@ parser = argparse.ArgumentParser()
 import random
 random.seed(72)
 
-parser.add_argument('--case_study', type=str, default='Example_50')
+parser.add_argument('--case_study', type=str, default='Purchasing')
 parser.add_argument('--max_number_iterations', type=int, default=15)
 parser.add_argument('--show_shap', type=bool, default=False)
 parser.add_argument('--save_shap', type=bool, default=True)

@@ -13,7 +13,7 @@ Our framework has been implemented and evaluated on four processes and various m
 
 <ol>
     <li>
-        <strong>Clone the Repository:</strong>
+        <strong>Clone the <a href="https://github.com/franvinci/SPN_Simulator">SPN Simulator Repository</a>:</strong>
         <pre><code>git clone https://github.com/franvinci/SPN_Simulator</code></pre>
     </li>
     <li>

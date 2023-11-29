@@ -1,128 +1,25 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <pnml>
-  <net id="imported_1697890687.5468757" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+  <net id="imported_1698141779.7172573" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
     <name>
-      <text>imported_1697890687.5468757</text>
+      <text>imported_1698141779.7172573</text>
     </name>
     <page id="n0">
-      <place id="n5">
+      <place id="n8">
         <name>
-          <text>n5</text>
+          <text>n8</text>
         </name>
         <graphics>
-          <position x="1668.0" y="70.0"/>
+          <position x="618.0" y="64.0"/>
           <dimension x="12.0" y="12.0"/>
         </graphics>
       </place>
-      <place id="n9">
+      <place id="n11">
         <name>
-          <text>n9</text>
+          <text>n11</text>
         </name>
         <graphics>
-          <position x="1318.0" y="70.0"/>
-          <dimension x="12.0" y="12.0"/>
-        </graphics>
-      </place>
-      <place id="n12">
-        <name>
-          <text>n12</text>
-        </name>
-        <graphics>
-          <position x="1056.0" y="70.0"/>
-          <dimension x="12.0" y="12.0"/>
-        </graphics>
-      </place>
-      <place id="n15">
-        <name>
-          <text>xor_</text>
-        </name>
-        <graphics>
-          <position x="1493.0" y="70.0"/>
-          <dimension x="12.0" y="12.0"/>
-        </graphics>
-      </place>
-      <place id="n18">
-        <name>
-          <text>i</text>
-        </name>
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
-        <graphics>
-          <position x="6.0" y="70.0"/>
-          <dimension x="12.0" y="12.0"/>
-        </graphics>
-      </place>
-      <place id="n1">
-        <name>
-          <text>n1</text>
-        </name>
-        <graphics>
-          <position x="706.0" y="69.0"/>
-          <dimension x="12.0" y="12.0"/>
-        </graphics>
-      </place>
-      <place id="n4">
-        <name>
-          <text>n4</text>
-        </name>
-        <graphics>
-          <position x="793.0" y="70.0"/>
-          <dimension x="12.0" y="12.0"/>
-        </graphics>
-      </place>
-      <place id="n2">
-        <name>
-          <text>n2</text>
-        </name>
-        <graphics>
-          <position x="1231.0" y="70.0"/>
-          <dimension x="12.0" y="12.0"/>
-        </graphics>
-      </place>
-      <place id="n6">
-        <name>
-          <text>n6</text>
-        </name>
-        <graphics>
-          <position x="1143.0" y="70.0"/>
-          <dimension x="12.0" y="12.0"/>
-        </graphics>
-      </place>
-      <place id="n45">
-        <name>
-          <text>n45</text>
-        </name>
-      </place>
-      <place id="n46">
-        <name>
-          <text>n46</text>
-        </name>
-      </place>
-      <place id="n3">
-        <name>
-          <text>n3</text>
-        </name>
-        <graphics>
-          <position x="881.0" y="70.0"/>
-          <dimension x="12.0" y="12.0"/>
-        </graphics>
-      </place>
-      <place id="n7">
-        <name>
-          <text>n7</text>
-        </name>
-        <graphics>
-          <position x="531.0" y="57.0"/>
-          <dimension x="12.0" y="12.0"/>
-        </graphics>
-      </place>
-      <place id="n10">
-        <name>
-          <text>n10</text>
-        </name>
-        <graphics>
-          <position x="968.0" y="70.0"/>
+          <position x="1406.0" y="70.0"/>
           <dimension x="12.0" y="12.0"/>
         </graphics>
       </place>
@@ -144,33 +41,6 @@
           <dimension x="12.0" y="12.0"/>
         </graphics>
       </place>
-      <place id="n19">
-        <name>
-          <text>xor_</text>
-        </name>
-        <graphics>
-          <position x="268.0" y="74.0"/>
-          <dimension x="12.0" y="12.0"/>
-        </graphics>
-      </place>
-      <place id="n8">
-        <name>
-          <text>n8</text>
-        </name>
-        <graphics>
-          <position x="618.0" y="64.0"/>
-          <dimension x="12.0" y="12.0"/>
-        </graphics>
-      </place>
-      <place id="n11">
-        <name>
-          <text>n11</text>
-        </name>
-        <graphics>
-          <position x="1406.0" y="70.0"/>
-          <dimension x="12.0" y="12.0"/>
-        </graphics>
-      </place>
       <place id="n14">
         <name>
           <text>xor_</text>
@@ -189,6 +59,136 @@
           <dimension x="12.0" y="12.0"/>
         </graphics>
       </place>
+      <place id="n3">
+        <name>
+          <text>n3</text>
+        </name>
+        <graphics>
+          <position x="881.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n5">
+        <name>
+          <text>n5</text>
+        </name>
+        <graphics>
+          <position x="1668.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n9">
+        <name>
+          <text>n9</text>
+        </name>
+        <graphics>
+          <position x="1318.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n45">
+        <name>
+          <text>n45</text>
+        </name>
+      </place>
+      <place id="n7">
+        <name>
+          <text>n7</text>
+        </name>
+        <graphics>
+          <position x="531.0" y="57.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n10">
+        <name>
+          <text>n10</text>
+        </name>
+        <graphics>
+          <position x="968.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n19">
+        <name>
+          <text>xor_</text>
+        </name>
+        <graphics>
+          <position x="268.0" y="74.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n46">
+        <name>
+          <text>n46</text>
+        </name>
+      </place>
+      <place id="n1">
+        <name>
+          <text>n1</text>
+        </name>
+        <graphics>
+          <position x="706.0" y="69.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n2">
+        <name>
+          <text>n2</text>
+        </name>
+        <graphics>
+          <position x="1231.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n4">
+        <name>
+          <text>n4</text>
+        </name>
+        <graphics>
+          <position x="793.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n6">
+        <name>
+          <text>n6</text>
+        </name>
+        <graphics>
+          <position x="1143.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n12">
+        <name>
+          <text>n12</text>
+        </name>
+        <graphics>
+          <position x="1056.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n18">
+        <name>
+          <text>i</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <graphics>
+          <position x="6.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n15">
+        <name>
+          <text>xor_</text>
+        </name>
+        <graphics>
+          <position x="1493.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
       <place id="n20">
         <name>
           <text>o</text>
@@ -198,6 +198,33 @@
           <dimension x="12.0" y="12.0"/>
         </graphics>
       </place>
+      <transition id="n21">
+        <name>
+          <text>Amend Request for Quotation</text>
+        </name>
+        <graphics>
+          <position x="487.0" y="88.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n24">
+        <name>
+          <text>Send Request for Quotation to Supplier</text>
+        </name>
+        <graphics>
+          <position x="487.0" y="53.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n26">
+        <name>
+          <text>Settle Dispute With Supplier</text>
+        </name>
+        <graphics>
+          <position x="1537.0" y="70.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
       <transition id="n29">
         <name>
           <text>Analyze Purchase Requisition</text>
@@ -225,65 +252,6 @@
           <dimension x="25.0" y="20.0"/>
         </graphics>
       </transition>
-      <transition id="n30">
-        <name>
-          <text>Release Purchase Order</text>
-        </name>
-        <graphics>
-          <position x="1187.0" y="70.0"/>
-          <dimension x="25.0" y="20.0"/>
-        </graphics>
-      </transition>
-      <transition id="n33">
-        <name>
-          <text>Choose best option</text>
-        </name>
-        <graphics>
-          <position x="750.0" y="70.0"/>
-          <dimension x="25.0" y="20.0"/>
-        </graphics>
-      </transition>
-      <transition id="n44">
-        <name>
-          <text>END</text>
-        </name>
-      </transition>
-      <transition id="n21">
-        <name>
-          <text>Amend Request for Quotation</text>
-        </name>
-        <graphics>
-          <position x="487.0" y="88.0"/>
-          <dimension x="25.0" y="20.0"/>
-        </graphics>
-      </transition>
-      <transition id="n24">
-        <name>
-          <text>Send Request for Quotation to Supplier</text>
-        </name>
-        <graphics>
-          <position x="487.0" y="53.0"/>
-          <dimension x="25.0" y="20.0"/>
-        </graphics>
-      </transition>
-      <transition id="n27">
-        <name>
-          <text>Analyze Request for Quotation</text>
-        </name>
-        <graphics>
-          <position x="400.0" y="66.0"/>
-          <dimension x="25.0" y="20.0"/>
-        </graphics>
-      </transition>
-      <transition id="n28">
-        <name>
-          <text>Create Purchase Order</text>
-        </name>
-        <graphics>
-          <position x="925.0" y="70.0"/>
-          <dimension x="25.0" y="20.0"/>
-        </graphics>
-      </transition>
       <transition id="n38">
         <name>
           <text>Approve Purchase Order for payment</text>
@@ -302,29 +270,6 @@
           <dimension x="25.0" y="20.0"/>
         </graphics>
       </transition>
-      <transition id="n31">
-        <name>
-          <text>Pay Invoice</text>
-        </name>
-        <graphics>
-          <position x="1712.0" y="70.0"/>
-          <dimension x="25.0" y="20.0"/>
-        </graphics>
-      </transition>
-      <transition id="n34">
-        <name>
-          <text>Analyze Quotation Comparison Map</text>
-        </name>
-        <graphics>
-          <position x="662.0" y="67.0"/>
-          <dimension x="25.0" y="20.0"/>
-        </graphics>
-      </transition>
-      <transition id="n43">
-        <name>
-          <text>START</text>
-        </name>
-      </transition>
       <transition id="n22">
         <name>
           <text>Create Purchase Requisition</text>
@@ -340,6 +285,38 @@
         </name>
         <graphics>
           <position x="312.0" y="88.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n43">
+        <name>
+          <text>START</text>
+        </name>
+      </transition>
+      <transition id="n27">
+        <name>
+          <text>Analyze Request for Quotation</text>
+        </name>
+        <graphics>
+          <position x="400.0" y="66.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n30">
+        <name>
+          <text>Release Purchase Order</text>
+        </name>
+        <graphics>
+          <position x="1187.0" y="70.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n33">
+        <name>
+          <text>Choose best option</text>
+        </name>
+        <graphics>
+          <position x="750.0" y="70.0"/>
           <dimension x="25.0" y="20.0"/>
         </graphics>
       </transition>
@@ -369,23 +346,32 @@
           <position x="1520.470430107527" y="15.411290322580639"/>
           <dimension x="15.0" y="15.0"/>
         </graphics>
-        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="a8d3b9b2-8750-4d17-8ccf-bb105489f906"/>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="bbbc118c-35f7-484c-80d7-fc1829e581db"/>
       </transition>
-      <transition id="n23">
+      <transition id="n28">
         <name>
-          <text>Deliver Goods Services</text>
+          <text>Create Purchase Order</text>
         </name>
         <graphics>
-          <position x="1100.0" y="70.0"/>
+          <position x="925.0" y="70.0"/>
           <dimension x="25.0" y="20.0"/>
         </graphics>
       </transition>
-      <transition id="n26">
+      <transition id="n31">
         <name>
-          <text>Settle Dispute With Supplier</text>
+          <text>Pay Invoice</text>
         </name>
         <graphics>
-          <position x="1537.0" y="70.0"/>
+          <position x="1712.0" y="70.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n34">
+        <name>
+          <text>Analyze Quotation Comparison Map</text>
+        </name>
+        <graphics>
+          <position x="662.0" y="67.0"/>
           <dimension x="25.0" y="20.0"/>
         </graphics>
       </transition>
@@ -407,218 +393,232 @@
           <dimension x="25.0" y="20.0"/>
         </graphics>
       </transition>
-      <arc id="1846973454832" source="n22" target="n17">
+      <transition id="n23">
+        <name>
+          <text>Deliver Goods Services</text>
+        </name>
+        <graphics>
+          <position x="1100.0" y="70.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n44">
+        <name>
+          <text>END</text>
+        </name>
+      </transition>
+      <arc id="2392439688352" source="n1" target="n33">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973455648" source="n13" target="n27">
+      <arc id="2392439689744" source="n37" target="n17">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973455216" source="n26" target="n16">
+      <arc id="2392439685904" source="n27" target="n14">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973456272" source="n43" target="n45"/>
-      <arc id="1846973456656" source="n46" target="n44"/>
-      <arc id="1846973455600" source="n19" target="n37">
+      <arc id="2392439686288" source="n35" target="n15">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973450272" source="n7" target="n41">
+      <arc id="2392439686672" source="n28" target="n10">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973450656" source="n21" target="n13">
+      <arc id="2392439687056" source="n29" target="n19">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973451040" source="n17" target="n29">
+      <arc id="2392439687440" source="n14" target="n21">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973451424" source="n4" target="n39">
+      <arc id="2392439687824" source="n33" target="n4">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973451808" source="n23" target="n6">
+      <arc id="2392439688208" source="n12" target="n23">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973452192" source="n11" target="n35">
+      <arc id="2392439688592" source="n25" target="n13">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973452576" source="n30" target="n2">
+      <arc id="2392439688736" source="n8" target="n34">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973452960" source="n6" target="n30">
+      <arc id="2392439690848" source="n44" target="n20"/>
+      <arc id="2392439689120" source="n22" target="n17">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973453344" source="n36" target="n11">
+      <arc id="2392439553568" source="n7" target="n41">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973453728" source="n5" target="n31">
+      <arc id="2392439553952" source="n21" target="n13">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973456416" source="n44" target="n20"/>
-      <arc id="1846973454688" source="n16" target="n32">
+      <arc id="2392439685280" source="n34" target="n1">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973456800" source="n45" target="n22"/>
-      <arc id="1846973454304" source="n25" target="n13">
+      <arc id="2392439685664" source="n10" target="n40">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973455072" source="n2" target="n38">
+      <arc id="2392439686048" source="n3" target="n28">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973455456" source="n37" target="n17">
+      <arc id="2392439686432" source="n9" target="n36">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973454112" source="n24" target="n7">
+      <arc id="2392439686816" source="n40" target="n12">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973450464" source="n42" target="n16">
+      <arc id="2392439690656" source="n18" target="n43"/>
+      <arc id="2392439687584" source="n41" target="n8">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973450848" source="n15" target="n42">
+      <arc id="2392439687968" source="n14" target="n24">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973456992" source="n31" target="n46"/>
-      <arc id="1846973451616" source="n27" target="n14">
+      <arc id="2392439689504" source="n26" target="n16">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973452000" source="n35" target="n15">
+      <arc id="2392439689888" source="n19" target="n37">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973452384" source="n28" target="n10">
+      <arc id="2392439685184" source="n15" target="n42">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973452768" source="n29" target="n19">
+      <arc id="2392439691328" source="n31" target="n46"/>
+      <arc id="2392439691232" source="n45" target="n22"/>
+      <arc id="2392439688976" source="n16" target="n32">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973453152" source="n14" target="n21">
+      <arc id="2392439688544" source="n24" target="n7">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973453536" source="n33" target="n4">
+      <arc id="2392439553616" source="n42" target="n16">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973453920" source="n12" target="n23">
+      <arc id="2392439689360" source="n2" target="n38">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973454064" source="n1" target="n33">
+      <arc id="2392439688928" source="n38" target="n9">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973454496" source="n38" target="n9">
+      <arc id="2392439553376" source="n32" target="n5">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973450224" source="n32" target="n5">
+      <arc id="2392439553760" source="n39" target="n3">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973450608" source="n39" target="n3">
+      <arc id="2392439685472" source="n17" target="n29">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973450992" source="n34" target="n1">
+      <arc id="2392439685856" source="n4" target="n39">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973451376" source="n10" target="n40">
+      <arc id="2392439686240" source="n23" target="n6">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973451760" source="n3" target="n28">
+      <arc id="2392439686624" source="n11" target="n35">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973452144" source="n9" target="n36">
+      <arc id="2392439687008" source="n30" target="n2">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973452528" source="n40" target="n12">
+      <arc id="2392439687392" source="n6" target="n30">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973456368" source="n18" target="n43"/>
-      <arc id="1846973453296" source="n41" target="n8">
+      <arc id="2392439687776" source="n36" target="n11">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973453680" source="n14" target="n24">
+      <arc id="2392439688160" source="n5" target="n31">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973454448" source="n8" target="n34">
+      <arc id="2392439689312" source="n19" target="n25">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973454880" source="n19" target="n25">
+      <arc id="2392439689696" source="n15" target="n26">
         <arctype>
           <text>normal</text>
         </arctype>
       </arc>
-      <arc id="1846973455264" source="n15" target="n26">
+      <arc id="2392439690608" source="n43" target="n45"/>
+      <arc id="2392439690992" source="n46" target="n44"/>
+      <arc id="2392439690080" source="n13" target="n27">
         <arctype>
           <text>normal</text>
         </arctype>

@@ -75,7 +75,7 @@ def addStartEndTransitions(net, initial_marking, final_marking):
         
 
 
-def splitRealLog(real, split_size = (0.6, 0.2, 0.2), split_temporal = False, save_to = ''):
+def splitRealLog(real, split_size = (0.6, 0.2, 0.2), split_temporal = True, save_to = ''):
     df_real = pm4py.convert_to_dataframe(real)
 
     cases = df_real['case:concept:name'].unique()

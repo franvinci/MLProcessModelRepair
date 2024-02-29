@@ -15,8 +15,8 @@ class CreateDataset:
         self.real_val = real_val
         self.sim = sim
         self.df_sim = pm4py.convert_to_dataframe(sim)
-        self.df_sim_train = self.df_sim[self.df_sim['case:concept:name']<=len(self.real_train)]
-        self.df_sim_val = self.df_sim[self.df_sim['case:concept:name']>len(self.real_train)]
+        self.df_sim_train = self.df_sim[self.df_sim['case:concept:name'].astype(int)<=len(self.real_train)]
+        self.df_sim_val = self.df_sim[self.df_sim['case:concept:name'].astype(int)>len(self.real_train)]
         self.sim_train = pm4py.convert_to_event_log(self.df_sim_train)
         self.sim_val = pm4py.convert_to_event_log(self.df_sim_val)
 

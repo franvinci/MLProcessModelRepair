@@ -11,6 +11,7 @@ from utils.createDataset import CreateDataset
 from utils.Discriminator import Discriminator
 from utils.repair_utils import updateModel
 import json
+import shutil
 
 
 
@@ -23,7 +24,12 @@ def apply(log_path, model_path, greedy_method=True, max_number_iterations=15, ve
         pass        
     log_real = addStartEndEvents(log_real)
 
-    real_train, real_val, _ = splitRealLog(log_real, split_size = (0.6, 0.2, 0.2), split_temporal = True, save_to=f'./')
+    if os.path.exists('mlrepair_info'):
+        shutil.rmtree('mlrepair_info')
+
+    os.mkdir('mlrepair_info')
+
+    real_train, real_val, _ = splitRealLog(log_real, split_size = (0.6, 0.2, 0.2), split_temporal = True, save_to=f'mlrepair_info')
 
     net, initial_marking, final_marking = pm4py.read_pnml(model_path)
     
@@ -35,7 +41,6 @@ def apply(log_path, model_path, greedy_method=True, max_number_iterations=15, ve
         print('Petri Net must be sound.')
         return None
     
-    os.mkdir('mlrepair_info')
     os.mkdir('mlrepair_info/it_0')
 
     net, initial_marking, final_marking = addStartEndTransitions(net, initial_marking, final_marking)

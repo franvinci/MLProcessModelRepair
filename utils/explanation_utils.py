@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def plot_shap_by_value(shap_values, counts, show=True, save_to=None):
+def plot_shap_by_value(shap_values, counts, shap_thr=0.05, show=True, save_to=None):
     s_values = shap_values.values[:,:,1]
     base_value = shap_values.base_values[0,1]
     data = shap_values.data
@@ -18,7 +18,7 @@ def plot_shap_by_value(shap_values, counts, show=True, save_to=None):
             shap_feature_value_dict[feature+' > 0'] = (s_values_f[data_f>0] * counts[data_f>0]).sum() / counts[data_f>0].sum()
    
     shap_feature_value = pd.Series(shap_feature_value_dict)
-    shap_feature_value = shap_feature_value[shap_feature_value.abs()>=5e-2]
+    shap_feature_value = shap_feature_value[shap_feature_value.abs()>=shap_thr]
     shap_feature_value = shap_feature_value.sort_values().round(2)
 
     c = ['r' if x <0 else 'g' for x in shap_feature_value.values]

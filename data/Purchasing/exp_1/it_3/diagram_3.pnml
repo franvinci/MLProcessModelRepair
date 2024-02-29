@@ -1,0 +1,515 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="imported_1706806069.2245243" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>imported_1706806069.2245243</text>
+    </name>
+    <page id="n0">
+      <place id="n10">
+        <name>
+          <text>n10</text>
+        </name>
+        <graphics>
+          <position x="968.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n14">
+        <name>
+          <text>xor_</text>
+        </name>
+        <graphics>
+          <position x="443.0" y="68.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n7">
+        <name>
+          <text>n7</text>
+        </name>
+        <graphics>
+          <position x="531.0" y="57.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n15">
+        <name>
+          <text>xor_</text>
+        </name>
+        <graphics>
+          <position x="1493.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n3">
+        <name>
+          <text>n3</text>
+        </name>
+        <graphics>
+          <position x="881.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n17">
+        <name>
+          <text>xor_</text>
+        </name>
+        <graphics>
+          <position x="181.0" y="69.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n13">
+        <name>
+          <text>xor_</text>
+        </name>
+        <graphics>
+          <position x="356.0" y="81.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n18">
+        <name>
+          <text>i</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <graphics>
+          <position x="6.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n8">
+        <name>
+          <text>n8</text>
+        </name>
+        <graphics>
+          <position x="618.0" y="64.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n5">
+        <name>
+          <text>n5</text>
+        </name>
+        <graphics>
+          <position x="1668.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n20">
+        <name>
+          <text>o</text>
+        </name>
+        <graphics>
+          <position x="1843.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n4">
+        <name>
+          <text>n4</text>
+        </name>
+        <graphics>
+          <position x="793.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n16">
+        <name>
+          <text>xor_</text>
+        </name>
+        <graphics>
+          <position x="1581.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n45">
+        <name>
+          <text>n45</text>
+        </name>
+      </place>
+      <place id="n1">
+        <name>
+          <text>n1</text>
+        </name>
+        <graphics>
+          <position x="706.0" y="69.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n9">
+        <name>
+          <text>n9</text>
+        </name>
+        <graphics>
+          <position x="1318.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n2">
+        <name>
+          <text>n2</text>
+        </name>
+        <graphics>
+          <position x="1231.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n12">
+        <name>
+          <text>n12</text>
+        </name>
+        <graphics>
+          <position x="1056.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n46">
+        <name>
+          <text>n46</text>
+        </name>
+      </place>
+      <place id="n6">
+        <name>
+          <text>n6</text>
+        </name>
+        <graphics>
+          <position x="1143.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n19">
+        <name>
+          <text>xor_</text>
+        </name>
+        <graphics>
+          <position x="268.0" y="74.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <place id="n11">
+        <name>
+          <text>n11</text>
+        </name>
+        <graphics>
+          <position x="1406.0" y="70.0"/>
+          <dimension x="12.0" y="12.0"/>
+        </graphics>
+      </place>
+      <transition id="n47">
+        <name>
+          <text>n47</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="f23f064c-488f-49be-9c7f-039025b6f777"/>
+      </transition>
+      <transition id="n44">
+        <name>
+          <text>END</text>
+        </name>
+      </transition>
+      <transition id="n28">
+        <name>
+          <text>Create Purchase Order</text>
+        </name>
+        <graphics>
+          <position x="925.0" y="70.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n37">
+        <name>
+          <text>Amend Purchase Requisition</text>
+        </name>
+        <graphics>
+          <position x="312.0" y="53.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n42">
+        <name>
+          <text>n42</text>
+        </name>
+        <graphics>
+          <position x="1520.470430107527" y="15.411290322580639"/>
+          <dimension x="15.0" y="15.0"/>
+        </graphics>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="fcfa725f-1e5a-40e0-8e83-d4d4e65a3b46"/>
+      </transition>
+      <transition id="n35">
+        <name>
+          <text>Release Supplier's Invoice</text>
+        </name>
+        <graphics>
+          <position x="1450.0" y="70.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n22">
+        <name>
+          <text>Create Purchase Requisition</text>
+        </name>
+        <graphics>
+          <position x="137.0" y="69.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n24">
+        <name>
+          <text>Send Request for Quotation to Supplier</text>
+        </name>
+        <graphics>
+          <position x="487.0" y="53.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n33">
+        <name>
+          <text>Choose best option</text>
+        </name>
+        <graphics>
+          <position x="750.0" y="70.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n31">
+        <name>
+          <text>Pay Invoice</text>
+        </name>
+        <graphics>
+          <position x="1712.0" y="70.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n27">
+        <name>
+          <text>Analyze Request for Quotation</text>
+        </name>
+        <graphics>
+          <position x="400.0" y="66.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n25">
+        <name>
+          <text>Create Request for Quotation</text>
+        </name>
+        <graphics>
+          <position x="312.0" y="88.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n23">
+        <name>
+          <text>Deliver Goods Services</text>
+        </name>
+        <graphics>
+          <position x="1100.0" y="70.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n34">
+        <name>
+          <text>Analyze Quotation Comparison Map</text>
+        </name>
+        <graphics>
+          <position x="662.0" y="67.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n29">
+        <name>
+          <text>Analyze Purchase Requisition</text>
+        </name>
+        <graphics>
+          <position x="225.0" y="81.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n40">
+        <name>
+          <text>Confirm Purchase Order</text>
+        </name>
+        <graphics>
+          <position x="1012.0" y="70.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n52">
+        <name>
+          <text>n52</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="b40d5691-10d8-425e-a844-f0eaad72c2f8"/>
+      </transition>
+      <transition id="n43">
+        <name>
+          <text>START</text>
+        </name>
+      </transition>
+      <transition id="n51">
+        <name>
+          <text>n51</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="9d12c5bc-3890-4ed7-89a2-4359575e1493"/>
+      </transition>
+      <transition id="n39">
+        <name>
+          <text>Settle Conditions With Supplier</text>
+        </name>
+        <graphics>
+          <position x="837.0" y="70.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n32">
+        <name>
+          <text>Authorize Supplier's Invoice payment</text>
+        </name>
+        <graphics>
+          <position x="1625.0" y="70.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n21">
+        <name>
+          <text>Amend Request for Quotation</text>
+        </name>
+        <graphics>
+          <position x="487.0" y="88.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n38">
+        <name>
+          <text>Approve Purchase Order for payment</text>
+        </name>
+        <graphics>
+          <position x="1275.0" y="70.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n36">
+        <name>
+          <text>Send Invoice</text>
+        </name>
+        <graphics>
+          <position x="1362.0" y="70.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n26">
+        <name>
+          <text>Settle Dispute With Supplier</text>
+        </name>
+        <graphics>
+          <position x="1537.0" y="70.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n41">
+        <name>
+          <text>Create Quotation comparison Map</text>
+        </name>
+        <graphics>
+          <position x="575.0" y="61.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n30">
+        <name>
+          <text>Release Purchase Order</text>
+        </name>
+        <graphics>
+          <position x="1187.0" y="70.0"/>
+          <dimension x="25.0" y="20.0"/>
+        </graphics>
+      </transition>
+      <transition id="n48">
+        <name>
+          <text>n48</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="f87a06be-503a-45c1-b5b6-93c26dc63956"/>
+      </transition>
+      <transition id="n50">
+        <name>
+          <text>n50</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="4f553f4a-0798-4566-919e-704b0b41eab5"/>
+      </transition>
+      <transition id="n49">
+        <name>
+          <text>n49</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="6579fd52-e866-4193-afe4-d68cb1080b4a"/>
+      </transition>
+      <arc id="1572094248592" source="n43" target="n45"/>
+      <arc id="1572083609040" source="n48" target="n15"/>
+      <arc id="1572094252944" source="n4" target="n39"/>
+      <arc id="1572089853840" source="n14" target="n51"/>
+      <arc id="1572094258704" source="n2" target="n48"/>
+      <arc id="1572094250512" source="n27" target="n14"/>
+      <arc id="1572084162064" source="n10" target="n40"/>
+      <arc id="1572094248720" source="n39" target="n3"/>
+      <arc id="1572094262416" source="n29" target="n19"/>
+      <arc id="1572084527888" source="n19" target="n25"/>
+      <arc id="1572094247568" source="n1" target="n33"/>
+      <arc id="1572094259728" source="n44" target="n20"/>
+      <arc id="1572094254736" source="n5" target="n31"/>
+      <arc id="1572094250000" source="n11" target="n50"/>
+      <arc id="1572083603472" source="n15" target="n26"/>
+      <arc id="1572094841168" source="n40" target="n12"/>
+      <arc id="1572089841936" source="n19" target="n52"/>
+      <arc id="1572089737552" source="n13" target="n27"/>
+      <arc id="1572094251600" source="n16" target="n32"/>
+      <arc id="1572094255824" source="n41" target="n8"/>
+      <arc id="1572094253968" source="n52" target="n46"/>
+      <arc id="1572094256080" source="n24" target="n7"/>
+      <arc id="1572094262288" source="n36" target="n11"/>
+      <arc id="1572094250128" source="n8" target="n34"/>
+      <arc id="1572089894224" source="n37" target="n17"/>
+      <arc id="1572089851984" source="n25" target="n13"/>
+      <arc id="1572094252752" source="n18" target="n43"/>
+      <arc id="1572094207696" source="n22" target="n17"/>
+      <arc id="1572084108496" source="n38" target="n9"/>
+      <arc id="1572089845456" source="n28" target="n10"/>
+      <arc id="1572094205136" source="n50" target="n16"/>
+      <arc id="1572088437968" source="n17" target="n29"/>
+      <arc id="1572094250704" source="n14" target="n21"/>
+      <arc id="1572094247760" source="n33" target="n4"/>
+      <arc id="1572094247888" source="n9" target="n36"/>
+      <arc id="1572094260176" source="n7" target="n41"/>
+      <arc id="1572094259664" source="n46" target="n44"/>
+      <arc id="1572094257616" source="n47" target="n6"/>
+      <arc id="1572094249040" source="n21" target="n13"/>
+      <arc id="1572094252240" source="n16" target="n47"/>
+      <arc id="1572094256464" source="n2" target="n38"/>
+      <arc id="1572094247504" source="n19" target="n37"/>
+      <arc id="1572094840848" source="n14" target="n24"/>
+      <arc id="1572094849168" source="n11" target="n35"/>
+      <arc id="1572094249424" source="n30" target="n2"/>
+      <arc id="1572084111824" source="n35" target="n15"/>
+      <arc id="1572088439312" source="n17" target="n49"/>
+      <arc id="1572089904336" source="n15" target="n42"/>
+      <arc id="1572089903120" source="n34" target="n1"/>
+      <arc id="1572083911376" source="n6" target="n30"/>
+      <arc id="1572094373072" source="n31" target="n46"/>
+      <arc id="1572094201296" source="n23" target="n6"/>
+      <arc id="1572084108752" source="n45" target="n22"/>
+      <arc id="1572082887632" source="n26" target="n16"/>
+      <arc id="1572083915728" source="n49" target="n19"/>
+      <arc id="1572094248080" source="n12" target="n23"/>
+      <arc id="1572094258384" source="n51" target="n46"/>
+      <arc id="1572094758224" source="n42" target="n16"/>
+      <arc id="1572094846352" source="n32" target="n5"/>
+      <arc id="1572094262736" source="n3" target="n28"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="n20">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

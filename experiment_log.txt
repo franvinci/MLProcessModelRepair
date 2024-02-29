@@ -1,0 +1,454 @@
+Experiment Log
+Description: BPM Conference 2024 experiments.
+
+
+
+Purchasing Experiment Results:
+
+Starting Fitness: 0.64
+Starting Precision: 0.99
+Starting Harmonic Mean (FP): 0.77
+Starting Simplicity: 0.92
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.13
+SOTA Harmonic Mean (FP): 0.23
+SOTA Simplicity: 0.63
+
+Test Fitness: 0.95
+Test Precision: 0.82
+Test Harmonic Mean (FP): 0.88
+Test Simplicity: 0.78
+
+[Heuristic] Test Fitness: 0.95
+[Heuristic] Test Precision: 0.85
+[Heuristic] Test Harmonic Mean (FP): 0.89
+[Heuristic] Test Simplicity: 0.81
+
+
+
+Purchasing_25 Experiment Results:
+
+Starting Fitness: 0.63
+Starting Precision: 1.0
+Starting Harmonic Mean (FP): 0.77
+Starting Simplicity: 0.96
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.13
+SOTA Harmonic Mean (FP): 0.23
+SOTA Simplicity: 0.64
+
+Test Fitness: 1.0
+Test Precision: 0.81
+Test Harmonic Mean (FP): 0.89
+Test Simplicity: 0.75
+
+[Heuristic] Test Fitness: 1.0
+[Heuristic] Test Precision: 0.81
+[Heuristic] Test Harmonic Mean (FP): 0.89
+[Heuristic] Test Simplicity: 0.75
+
+
+
+Purchasing_50 Experiment Results:
+
+Starting Fitness: 0.63
+Starting Precision: 1.0
+Starting Harmonic Mean (FP): 0.78
+Starting Simplicity: 1.0
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.13
+SOTA Harmonic Mean (FP): 0.23
+SOTA Simplicity: 0.64
+
+Test Fitness: 1.0
+Test Precision: 0.81
+Test Harmonic Mean (FP): 0.89
+Test Simplicity: 0.75
+
+[Heuristic] Test Fitness: 1.0
+[Heuristic] Test Precision: 0.81
+[Heuristic] Test Harmonic Mean (FP): 0.89
+[Heuristic] Test Simplicity: 0.75
+
+
+
+BPI12 Experiment Results:
+
+Starting Fitness: 0.68
+Starting Precision: 0.91
+Starting Harmonic Mean (FP): 0.78
+Starting Simplicity: 0.82
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.38
+SOTA Harmonic Mean (FP): 0.55
+SOTA Simplicity: 0.55
+
+Test Fitness: 1.0
+Test Precision: 0.49
+Test Harmonic Mean (FP): 0.65
+Test Simplicity: 0.6
+
+[Heuristic] Test Fitness: 1.0
+[Heuristic] Test Precision: 0.49
+[Heuristic] Test Harmonic Mean (FP): 0.65
+[Heuristic] Test Simplicity: 0.62
+
+
+
+BPI12_25 Experiment Results:
+
+Starting Fitness: 0.84
+Starting Precision: 0.91
+Starting Harmonic Mean (FP): 0.87
+Starting Simplicity: 0.71
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.42
+SOTA Harmonic Mean (FP): 0.6
+SOTA Simplicity: 0.59
+
+Test Fitness: 1.0
+Test Precision: 0.65
+Test Harmonic Mean (FP): 0.79
+Test Simplicity: 0.61
+
+[Heuristic] Test Fitness: 1.0
+[Heuristic] Test Precision: 0.65
+[Heuristic] Test Harmonic Mean (FP): 0.79
+[Heuristic] Test Simplicity: 0.61
+
+
+
+BPI12_50 Experiment Results:
+
+Starting Fitness: 0.62
+Starting Precision: 0.65
+Starting Harmonic Mean (FP): 0.63
+Starting Simplicity: 0.78
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.36
+SOTA Harmonic Mean (FP): 0.53
+SOTA Simplicity: 0.53
+
+Test Fitness: 0.91
+Test Precision: 0.49
+Test Harmonic Mean (FP): 0.64
+Test Simplicity: 0.6
+
+[Heuristic] Test Fitness: 0.91
+[Heuristic] Test Precision: 0.49
+[Heuristic] Test Harmonic Mean (FP): 0.64
+[Heuristic] Test Simplicity: 0.6
+
+
+
+BPI12_100 Experiment Results:
+
+Starting Fitness: 0.61
+Starting Precision: 0.55
+Starting Harmonic Mean (FP): 0.58
+Starting Simplicity: 0.68
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.36
+SOTA Harmonic Mean (FP): 0.53
+SOTA Simplicity: 0.48
+
+Test Fitness: 1.0
+Test Precision: 0.36
+Test Harmonic Mean (FP): 0.53
+Test Simplicity: 0.55
+
+[Heuristic] Test Fitness: 1.0
+[Heuristic] Test Precision: 0.36
+[Heuristic] Test Harmonic Mean (FP): 0.53
+[Heuristic] Test Simplicity: 0.55
+
+
+
+BPI17 Experiment Results:
+
+Starting Fitness: 0.73
+Starting Precision: 1.0
+Starting Harmonic Mean (FP): 0.84
+Starting Simplicity: 0.79
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.54
+SOTA Harmonic Mean (FP): 0.7
+SOTA Simplicity: 0.59
+
+Test Fitness: 1.0
+Test Precision: 0.73
+Test Harmonic Mean (FP): 0.84
+Test Simplicity: 0.64
+
+[Heuristic] Test Fitness: 1.0
+[Heuristic] Test Precision: 0.73
+[Heuristic] Test Harmonic Mean (FP): 0.84
+[Heuristic] Test Simplicity: 0.64
+
+
+
+BPI17_25 Experiment Results:
+
+Starting Fitness: 0.85
+Starting Precision: 0.74
+Starting Harmonic Mean (FP): 0.79
+Starting Simplicity: 0.68
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.46
+SOTA Harmonic Mean (FP): 0.63
+SOTA Simplicity: 0.55
+
+Test Fitness: 1.0
+Test Precision: 0.7
+Test Harmonic Mean (FP): 0.82
+Test Simplicity: 0.48
+
+[Heuristic] Test Fitness: 0.98
+[Heuristic] Test Precision: 0.79
+[Heuristic] Test Harmonic Mean (FP): 0.87
+[Heuristic] Test Simplicity: 0.56
+
+
+
+BPI17_50 Experiment Results:
+
+Starting Fitness: 0.57
+Starting Precision: 0.71
+Starting Harmonic Mean (FP): 0.63
+Starting Simplicity: 0.73
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.42
+SOTA Harmonic Mean (FP): 0.59
+SOTA Simplicity: 0.51
+
+Test Fitness: 0.91
+Test Precision: 0.61
+Test Harmonic Mean (FP): 0.73
+Test Simplicity: 0.35
+
+[Heuristic] Test Fitness: 0.79
+[Heuristic] Test Precision: 0.79
+[Heuristic] Test Harmonic Mean (FP): 0.79
+[Heuristic] Test Simplicity: 0.44
+
+
+
+BPI17_75 Experiment Results:
+
+Starting Fitness: 0.58
+Starting Precision: 0.63
+Starting Harmonic Mean (FP): 0.61
+Starting Simplicity: 0.67
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.42
+SOTA Harmonic Mean (FP): 0.59
+SOTA Simplicity: 0.51
+
+Test Fitness: 0.78
+Test Precision: 0.57
+Test Harmonic Mean (FP): 0.66
+Test Simplicity: 0.32
+
+[Heuristic] Test Fitness: 0.67
+[Heuristic] Test Precision: 0.67
+[Heuristic] Test Harmonic Mean (FP): 0.67
+[Heuristic] Test Simplicity: 0.47
+
+
+
+BPI17_100 Experiment Results:
+
+Starting Fitness: 0.46
+Starting Precision: 0.36
+Starting Harmonic Mean (FP): 0.4
+Starting Simplicity: 0.71
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.42
+SOTA Harmonic Mean (FP): 0.59
+SOTA Simplicity: 0.49
+
+Test Fitness: 0.79
+Test Precision: 0.5
+Test Harmonic Mean (FP): 0.61
+Test Simplicity: 0.29
+
+[Heuristic] Test Fitness: 0.78
+[Heuristic] Test Precision: 0.55
+[Heuristic] Test Harmonic Mean (FP): 0.65
+[Heuristic] Test Simplicity: 0.42
+
+
+
+RoadTrafficFines_25 Experiment Results:
+
+Starting Fitness: 0.96
+Starting Precision: 0.52
+Starting Harmonic Mean (FP): 0.68
+Starting Simplicity: 0.7
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.44
+SOTA Harmonic Mean (FP): 0.61
+SOTA Simplicity: 0.55
+
+Test Fitness: 0.99
+Test Precision: 0.54
+Test Harmonic Mean (FP): 0.7
+Test Simplicity: 0.36
+
+[Heuristic] Test Fitness: 0.99
+[Heuristic] Test Precision: 0.55
+[Heuristic] Test Harmonic Mean (FP): 0.7
+[Heuristic] Test Simplicity: 0.58
+
+
+
+RoadTrafficFines_50 Experiment Results:
+
+Starting Fitness: 0.89
+Starting Precision: 0.67
+Starting Harmonic Mean (FP): 0.76
+Starting Simplicity: 0.73
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.45
+SOTA Harmonic Mean (FP): 0.62
+SOTA Simplicity: 0.57
+
+Test Fitness: 1.0
+Test Precision: 0.45
+Test Harmonic Mean (FP): 0.62
+Test Simplicity: 0.07
+
+[Heuristic] Test Fitness: 0.98
+[Heuristic] Test Precision: 0.7
+[Heuristic] Test Harmonic Mean (FP): 0.81
+[Heuristic] Test Simplicity: 0.52
+
+
+
+RoadTrafficFines_75 Experiment Results:
+
+Starting Fitness: 0.93
+Starting Precision: 0.76
+Starting Harmonic Mean (FP): 0.84
+Starting Simplicity: 0.77
+
+SOTA model is not sound: Fitness and Precision are computed using TOKEN BASED METHOD
+SOTA Fitness: 0.9
+SOTA Precision: 0.51
+SOTA Harmonic Mean (FP): 0.65
+SOTA Simplicity: 0.54
+
+Test Fitness: 0.98
+Test Precision: 0.78
+Test Harmonic Mean (FP): 0.87
+Test Simplicity: 0.59
+
+[Heuristic] Test Fitness: 0.98
+[Heuristic] Test Precision: 0.78
+[Heuristic] Test Harmonic Mean (FP): 0.87
+[Heuristic] Test Simplicity: 0.66
+
+
+
+RoadTrafficFines_100 Experiment Results:
+
+Starting Fitness: 0.61
+Starting Precision: 0.75
+Starting Harmonic Mean (FP): 0.67
+Starting Simplicity: 1.0
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.43
+SOTA Harmonic Mean (FP): 0.6
+SOTA Simplicity: 0.52
+
+Test Fitness: 0.99
+Test Precision: 0.78
+Test Harmonic Mean (FP): 0.87
+Test Simplicity: 0.49
+
+[Heuristic] Test Fitness: 0.99
+[Heuristic] Test Precision: 0.75
+[Heuristic] Test Harmonic Mean (FP): 0.86
+[Heuristic] Test Simplicity: 0.57
+
+
+
+Sepsis_25 Experiment Results:
+
+Starting Fitness: 0.87
+Starting Precision: 0.49
+Starting Harmonic Mean (FP): 0.63
+Starting Simplicity: 0.67
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.2
+SOTA Harmonic Mean (FP): 0.33
+SOTA Simplicity: 0.56
+
+[Heuristic] Test Fitness: 0.91
+[Heuristic] Test Precision: 0.49
+[Heuristic] Test Harmonic Mean (FP): 0.64
+[Heuristic] Test Simplicity: 0.56
+
+
+
+Sepsis_50 Experiment Results:
+
+Starting Fitness: 0.58
+Starting Precision: 0.78
+Starting Harmonic Mean (FP): 0.67
+Starting Simplicity: 0.75
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.2
+SOTA Harmonic Mean (FP): 0.34
+SOTA Simplicity: 0.51
+
+Test Fitness: 0.95
+Test Precision: 0.3
+Test Harmonic Mean (FP): 0.45
+Test Simplicity: 0.11
+
+[Heuristic] Test Fitness: 0.76
+[Heuristic] Test Precision: 0.73
+[Heuristic] Test Harmonic Mean (FP): 0.74
+[Heuristic] Test Simplicity: 0.33
+
+
+
+Sepsis_75 Experiment Results:
+
+Starting Fitness: 0.52
+Starting Precision: 0.79
+Starting Harmonic Mean (FP): 0.63
+Starting Simplicity: 0.77
+
+SOTA Fitness: 1.0
+SOTA Precision: 0.2
+SOTA Harmonic Mean (FP): 0.34
+SOTA Simplicity: 0.5
+
+Test Fitness: 0.83
+Test Precision: 0.44
+Test Harmonic Mean (FP): 0.57
+Test Simplicity: 0.11
+
+[Heuristic] Test Fitness: 0.55
+[Heuristic] Test Precision: 0.78
+[Heuristic] Test Harmonic Mean (FP): 0.65
+[Heuristic] Test Simplicity: 0.54

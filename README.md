@@ -25,7 +25,7 @@ To  view results: Download <a href="MLProcessModelRepair.ipynb" download>MLProce
         <pre><code>$ cd MLProcessModelRepair</code></pre>
     </li>
     <li>
-        <strong>Install requirements using conda:</strong>
+        <strong>Create environment using conda:</strong>
         <pre><code>$ conda create --name ENVNAME --file requirements.txt</code></pre>
     </li>
 </ol>
@@ -72,7 +72,7 @@ Input and output files are in <a href="https://we.tl/t-cKFolClz8Y"><code>data.zi
         <strong>Clone <code><a href="https://anonymous.4open.science/r/SPN_Simulator-3B2F" target="_blank">SPN_Simulator</a></code> into <code>MLProcessModelRepair</code></strong>
     </li>
     <li>
-        <strong>Install requirements using conda:</strong>
+        <strong>Create environment using conda:</strong>
         <pre><code>$ conda create --name ENVNAME --file requirements.txt</code></pre>
     </li>
     <li>

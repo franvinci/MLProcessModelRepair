@@ -18,7 +18,7 @@ To  view results: Download <a href="MLProcessModelRepair.ipynb" download>MLProce
         <strong>Clone this repository.</strong>
     </li>
     <li>
-        <strong>Clone <code><a href="https://anonymous.4open.science/r/SPN_Simulator-3B2F" target="_blank">SPN_Simulator</a></code> into <code>MLProcessModelRepair</code></strong>
+        <strong>Clone <code><a href="https://github.com/franvinci/SPN_Simulator" target="_blank">SPN_Simulator</a></code> into <code>MLProcessModelRepair</code></strong>
     </li>
     <li>
         <strong>Navigate into the <code>MLProcessModelRepair</code> directory:</strong>

@@ -69,7 +69,7 @@ Input and output files are in <a href="data.zip"><code>data.zip</code></a>.
         <strong>Clone this repository.</strong>
     </li>
     <li>
-        <strong>Clone <code><a href="https://anonymous.4open.science/r/SPN_Simulator-3B2F" target="_blank">SPN_Simulator</a></code> into <code>MLProcessModelRepair</code></strong>
+        <strong>Clone <code><a href="https://github.com/franvinci/SPN_Simulator" target="_blank">SPN_Simulator</a></code> into <code>MLProcessModelRepair</code></strong>
     </li>
     <li>
         <strong>Create environment using conda:</strong>

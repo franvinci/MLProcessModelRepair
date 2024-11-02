@@ -91,3 +91,7 @@ Input and output files are in <a href="data.zip"><code>data.zip</code></a>.
         </ol>
     </li>
 </ol>
+
+## Reference
+
+Vinci, F., de Leoni, M. (2024). <i>Repairing Process Models Through Simulation and Explainable AI.</i> In: Marrella, A., Resinas, M., Jans, M., Rosemann, M. (eds) Business Process Management. BPM 2024. Lecture Notes in Computer Science, vol 14940. Springer, Cham. https://doi.org/10.1007/978-3-031-70396-6_8

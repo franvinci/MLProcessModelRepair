@@ -15,7 +15,7 @@ import shutil
 
 
 
-def apply(log_path, model_path, greedy_method=True, max_number_iterations=15, verbose=True):
+def apply(log_path, model_path, method='greedy', max_number_iterations=15, verbose=True):
 
     log_real = xes_importer.apply(log_path)
     try:
@@ -96,7 +96,7 @@ def apply(log_path, model_path, greedy_method=True, max_number_iterations=15, ve
         recommendations = discriminator.recommendations(show=False)
 
         net, initial_marking, final_marking = pm4py.read_pnml(f'mlrepair_info/it_{it_n}/diagram_{it_n}.pnml')
-        net, graph_is_updated = updateModel(net, initial_marking, recommendations, greedy_method)
+        net, graph_is_updated = updateModel(net, initial_marking, recommendations, method, log=real_train, final_marking=final_marking)
 
         os.mkdir(f'mlrepair_info/it_{it_n+1}')
         pm4py.write_pnml(net, initial_marking, final_marking, f'mlrepair_info/it_{it_n+1}/diagram_{it_n+1}.pnml')

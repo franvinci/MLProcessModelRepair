@@ -1,6 +1,8 @@
 from pm4py.objects.petri_net.obj import PetriNet
 from pm4py.objects.petri_net.utils import reachability_graph
-from collections import deque
+from pm4py.objects.log.obj import EventLog
+from collections import deque, Counter
+from pm4py.algo.conformance.alignments.petri_net import algorithm as alignments
 import random
 random.seed(72)
 
@@ -96,7 +98,68 @@ def find_shortest_path(nodes_set1, nodes_set2):
     return shortest_path_nodes
 
 
-def add_skip(net, initial_marking, a, b, greedy_method=True):
+def filter_event_log_activities(log, l):
+    
+    traces_l = []
+
+    for trace in log:
+        for event in trace:
+            if event['concept:name'] in l:
+                traces_l.append(trace)
+    
+    return traces_l
+
+def return_most_common_places_alignments_fp(log, net, im, fm, ts, a, b):    
+
+    traces_l = filter_event_log_activities(log, [a, b])
+
+    try:
+        alignments_ = alignments.apply_log(EventLog(traces_l), net, im, fm, parameters={"ret_tuple_as_trans_desc": True})
+    except:
+        alignments_ = []
+        for i in range(len(traces_l)):
+            alignments_.append(alignments.apply_trace(traces_l[i], net, im, fm, parameters={"ret_tuple_as_trans_desc": True}))
+
+    aligned_traces = [[y[0] for y in x['alignment'] if y[0][1]!='>>'] for x in alignments_]
+
+
+    places_after = []
+    places_before = []
+
+    for aligned_trace in aligned_traces:
+        
+        align_transitions_ts = []
+        for al_event in aligned_trace:
+            for T in list(ts.transitions):
+                if al_event[1] == str(T).split(',')[0][1:]:
+                    align_transitions_ts.append(T)
+                    break
+        
+        align_nodes_ts_to = []
+        for al_t in align_transitions_ts:
+            align_nodes_ts_to.append(al_t.to_state)
+
+        align_nodes_ts_from = []
+        for al_t in align_transitions_ts:
+            align_nodes_ts_from.append(al_t.from_state)
+
+        for i in range(len(align_transitions_ts)):
+            if align_transitions_ts[i].name.split(", ")[1][1:-2] == a:
+                places_after.append(align_nodes_ts_to[i])
+            if align_transitions_ts[i].name.split(", ")[1][1:-2] == b:
+                places_before.append(align_nodes_ts_from[i])
+
+
+    count_after = Counter(places_after)
+    most_common_after = count_after.most_common(1)[0][0]
+
+    count_before = Counter(places_before)
+    most_common_before = count_before.most_common(1)[0][0]
+
+    return most_common_after, most_common_before
+
+
+def add_skip(net, initial_marking, a, b, method='greedy', log=None, final_marking=None):
     
     t_a = search_transition(net, a)
     t_b = search_transition(net, b)
@@ -119,18 +182,24 @@ def add_skip(net, initial_marking, a, b, greedy_method=True):
         if T_e.name == str(t_end):
             break
 
-    t_a_reachgraph = [T for T in list(ts.transitions) if T.name == str(t_a)]
-    reach_nodes_a = [t.to_state for t in t_a_reachgraph]
-    t_b_reachgraph = [T for T in list(ts.transitions) if T.name == str(t_b)]
-    reach_nodes_b = [t.from_state for t in t_b_reachgraph]
-    if greedy_method:
+    if method != 'alignments':
+        t_a_reachgraph = [T for T in list(ts.transitions) if T.name == str(t_a)]
+        reach_nodes_a = [t.to_state for t in t_a_reachgraph]
+        t_b_reachgraph = [T for T in list(ts.transitions) if T.name == str(t_b)]
+        reach_nodes_b = [t.from_state for t in t_b_reachgraph]
+
+    if method == 'greedy':
         reach_nodes = [find_shortest_path([T_s.from_state], reach_nodes_a)[1]]
         list_new_sources = [['n'+x[:-1] for x in r.name.split('n')[1:]]for r in reach_nodes]
         reach_nodes = [find_shortest_path(reach_nodes_b, [T_e.to_state])[0]]
         list_new_targets = [['n'+x[:-1] for x in r.name.split('n')[1:]]for r in reach_nodes]
-    else:
+    if method == 'complete':
         list_new_sources = [['n'+x[:-1] for x in r.name.split('n')[1:]]for r in reach_nodes_a]
         list_new_targets = [['n'+x[:-1] for x in r.name.split('n')[1:]]for r in reach_nodes_b]
+    if method == 'alignments':
+        most_common_after, most_common_before = return_most_common_places_alignments_fp(log, net, initial_marking, final_marking, ts, a, b)
+        list_new_sources = [['n'+x[:-1] for x in r.name.split('n')[1:]]for r in [most_common_after]]
+        list_new_targets = [['n'+x[:-1] for x in r.name.split('n')[1:]]for r in [most_common_before]]
 
     for str_new_sources in list_new_sources:
         new_sources = [p for p in list(net.places) if p.name in str_new_sources]
@@ -291,7 +360,7 @@ def add_new_transition_b(net, a, b):
     return net
 
 
-def updateModel(net, initial_marking, recc, greedy_method=True, top_n_recc = 0):
+def updateModel(net, initial_marking, recc, method='greedy', top_n_recc = 0, log=None, final_marking=None):
 
     model_updates = [False]
 
@@ -314,7 +383,7 @@ def updateModel(net, initial_marking, recc, greedy_method=True, top_n_recc = 0):
                 net = add_new_transition_b(net, a, b)
                 model_updates.append(True)
             if (a in transition_labels) and (b in transition_labels):
-                net, model_updated = add_skip(net, initial_marking, a, b, greedy_method)
+                net, model_updated = add_skip(net, initial_marking, a, b, method, log, final_marking)
                 model_updates.append(model_updated)
 
         elif recc[rel][1] == 'skip_b':

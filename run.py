@@ -22,7 +22,7 @@ parser.add_argument('--case_study', type=str, default='Purchasing')
 parser.add_argument('--max_number_iterations', type=int, default=15)
 parser.add_argument('--show_shap', type=bool, default=False)
 parser.add_argument('--save_shap', type=bool, default=True)
-parser.add_argument('--greedy_method', type=bool, default=True)
+parser.add_argument('--method', type=str, default='greedy')
 
 args = parser.parse_args()
 
@@ -30,9 +30,9 @@ case_study = args.case_study
 save_shap = args.save_shap
 show_shap = args.show_shap
 max_number_iterations = args.max_number_iterations
-greedy_method = args.greedy_method
+method = args.method
 
-def run_repair(case_study, greedy_method=True, save_shap=True, show_shap=False, max_number_iterations=15):
+def run_repair(case_study, method='greedy', save_shap=True, show_shap=False, max_number_iterations=15):
     log_real = xes_importer.apply(f'data/{case_study}/log.xes')
     try:
         log_real = pm4py.filter_event_attribute_values(log_real, 'lifecycle:transition', ['complete'], level="event", retain=True)
@@ -68,7 +68,7 @@ def run_repair(case_study, greedy_method=True, save_shap=True, show_shap=False, 
         print('Petri Net must be sound.')
         return None
     
-    net, initial_marking, final_marking = addStartEndTransitions(net, initial_marking, final_marking)
+    # net, initial_marking, final_marking = addStartEndTransitions(net, initial_marking, final_marking)
     pm4py.write_pnml(net, initial_marking, final_marking, f'data/{case_study}/exp_{n_exp}/it_0/diagram_0.pnml')
 
     train_accuracy = []
@@ -122,7 +122,7 @@ def run_repair(case_study, greedy_method=True, save_shap=True, show_shap=False, 
             recommendations = discriminator.recommendations(show=show_shap)
 
         net, initial_marking, final_marking = pm4py.read_pnml(f'data/{case_study}/exp_{n_exp}/it_{it_n}/diagram_{it_n}.pnml')
-        net, graph_is_updated = updateModel(net, initial_marking, recommendations, greedy_method)
+        net, graph_is_updated = updateModel(net, initial_marking, recommendations, method, log=real_train, final_marking=final_marking)
 
         os.mkdir(f'data/{case_study}/exp_{n_exp}/it_{it_n+1}')
         pm4py.write_pnml(net, initial_marking, final_marking, f'data/{case_study}/exp_{n_exp}/it_{it_n+1}/diagram_{it_n+1}.pnml')
@@ -181,4 +181,4 @@ def run_repair(case_study, greedy_method=True, save_shap=True, show_shap=False, 
 
 
 if __name__ == "__main__":
-    run_repair(case_study, greedy_method, save_shap, show_shap, max_number_iterations)
+    run_repair(case_study, method, save_shap, show_shap, max_number_iterations)

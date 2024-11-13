@@ -43,7 +43,7 @@ if __name__ == "__main__":
         print('------------------------ ', case_study, ' ------------------------')
 
         # our framework
-        net, im, fm, _ = run_repair(case_study, greedy_method=False, save_shap=True, show_shap=False, max_number_iterations=15)
+        net, im, fm, _ = run_repair(case_study, method='complete', save_shap=True, show_shap=False, max_number_iterations=15)
         real_test = xes_importer.apply(f'data/{case_study}/logTest.xes')
         fitness = fitness_evaluator.apply(real_test, net, im, fm)
         fit = fitness['averageFitness']
@@ -52,7 +52,7 @@ if __name__ == "__main__":
         har_p_f = 2*fit*prec/(fit+prec)
 
         # our greedy framework
-        h_net, h_im, h_fm, _ = run_repair(case_study, greedy_method=True, save_shap=True, show_shap=False, max_number_iterations=15)
+        h_net, h_im, h_fm, _ = run_repair(case_study, method='greedy', save_shap=True, show_shap=False, max_number_iterations=15)
         h_fitness = fitness_evaluator.apply(real_test, h_net, h_im, h_fm)
         h_fit = h_fitness['averageFitness']
         h_prec = precision_evaluator.apply(real_test, h_net, h_im, h_fm)
